@@ -1,0 +1,43 @@
+{
+  "name": "varmeverket-backend-integration",
+  "version": "0.1.0",
+  "description": "Värmeverket Platform - Backend CMS Components for External Payload Integration",
+  "main": "payload.config.ts",
+  "scripts": {
+    "dev": "payload dev",
+    "build": "payload build",
+    "start": "payload start",
+    "generate:types": "payload generate:types"
+  },
+  "keywords": [
+    "payload",
+    "cms",
+    "varmeverket",
+    "backend",
+    "integration"
+  ],
+  "author": "Värmeverket Platform Team",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@payloadcms/richtext-lexical": "^3.44.0",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "payload": "^3.44.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mathiasdag/varmeverket-backend-integration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mathiasdag/varmeverket-backend-integration/issues"
+  },
+  "homepage": "https://github.com/mathiasdag/varmeverket-backend-integration#readme"
+}
