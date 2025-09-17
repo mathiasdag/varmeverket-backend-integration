@@ -63,7 +63,7 @@ export function generatePageMetadata(
  *   return (
  *     <div>
  *       <h1>{page.title}</h1>
- *       {/* Your page content */}
+ *       <div>Your page content here</div>
  *     </div>
  *   );
  * }
