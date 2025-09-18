@@ -30,7 +30,11 @@ export const setPublishedDateHook = ({
  * @param data - The document data
  * @returns Modified data with updated last modified date
  */
-export const updateLastModifiedHook = ({ data }: { data: Record<string, unknown> }) => {
+export const updateLastModifiedHook = ({
+  data,
+}: {
+  data: Record<string, unknown>;
+}) => {
   data.lastModifiedDate = getCurrentTimestamp();
   return data;
 };

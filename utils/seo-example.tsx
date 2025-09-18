@@ -1,6 +1,6 @@
 /**
  * Example of how to use the SEO utilities in your Next.js pages
- * 
+ *
  * This file shows how to integrate the SEO block system with Next.js metadata API
  */
 
@@ -16,8 +16,8 @@ export function generatePageMetadata(
   url?: string
 ): Metadata {
   const seoData = getSEOData(page);
-  const metaTags = generateMetaTags(seoData, url);
-  
+  const _metaTags = generateMetaTags(seoData, url);
+
   return {
     title: seoData.title,
     description: seoData.description,
@@ -28,14 +28,16 @@ export function generatePageMetadata(
       siteName: seoData.siteName,
       type: 'website',
       url: url,
-      images: seoData.image ? [
-        {
-          url: seoData.image,
-          width: 1200,
-          height: 630,
-          alt: seoData.title,
-        }
-      ] : undefined,
+      images: seoData.image
+        ? [
+            {
+              url: seoData.image,
+              width: 1200,
+              height: 630,
+              alt: seoData.title,
+            },
+          ]
+        : undefined,
     },
     twitter: {
       card: 'summary_large_image',
@@ -50,15 +52,15 @@ export function generatePageMetadata(
 
 /**
  * Example usage in a page component:
- * 
+ *
  * ```tsx
  * import { generatePageMetadata } from '@/utils/seo-example';
- * 
+ *
  * export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
  *   const page = await getPageBySlug(params.slug);
  *   return generatePageMetadata(page, `https://yoursite.com/${params.slug}`);
  * }
- * 
+ *
  * export default function PageComponent({ page }: { page: Page }) {
  *   return (
  *     <div>

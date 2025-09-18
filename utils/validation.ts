@@ -12,8 +12,9 @@ export const validateNoH1Headings = (value: unknown): true | string => {
       const hasH1 = richTextValue.root.children.some(
         child => child.type === 'heading' && child.tag === 'h1'
       );
-    if (hasH1) {
-      return 'H1 headings are not allowed. Please use H2 or lower.';
+      if (hasH1) {
+        return 'H1 headings are not allowed. Please use H2 or lower.';
+      }
     }
   }
   return true;

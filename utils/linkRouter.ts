@@ -9,7 +9,6 @@
 
 export interface LinkGroup {
   type: 'internal' | 'external' | 'copy';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   reference?: unknown; // Payload reference object
   url?: string;
   text?: string;
@@ -25,7 +24,6 @@ export interface LinkRouterResult {
 /**
  * Resolves a Payload reference object to a URL path
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function resolveReference(reference: unknown): string | undefined {
   if (!reference) return undefined;
 
@@ -36,8 +34,8 @@ function resolveReference(reference: unknown): string | undefined {
     'value' in reference &&
     reference.value?.slug
   ) {
-    const collection = reference.relationTo;
-    const slug = reference.value.slug;
+    const collection = reference?.relationTo;
+    const slug = reference?.value?.slug;
 
     switch (collection) {
       case 'spaces':
@@ -56,8 +54,8 @@ function resolveReference(reference: unknown): string | undefined {
     'slug' in reference &&
     !('relationTo' in reference)
   ) {
-    const slug = reference.slug;
-    const collection = reference.collection;
+    const slug = reference?.slug;
+    const collection = reference?.collection;
 
     switch (collection) {
       case 'spaces':
@@ -132,7 +130,6 @@ export function routeLink(link: LinkGroup): LinkRouterResult {
  */
 export function routeLegacyLink(
   type: 'internal' | 'external' | 'copy',
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   reference?: unknown,
   url?: string,
   text?: string
